@@ -122,7 +122,7 @@ class PopupsHooks {
 		return true;
 	}
 
-	public static function onBeforePageDisplay( OutputPage &$out, Skin &$skin) {
+	public static function onBeforePageDisplay( OutputPage $out, Skin $skin) {
 		// Enable only if the user has turned it on in Beta Preferences, or BetaFeatures is not installed.
 		// Will only be loaded if PageImages & TextExtracts extensions are installed.
 
@@ -154,7 +154,7 @@ class PopupsHooks {
 	 * @param ResourceLoader $resourceLoader
 	 * @return bool
 	 */
-	public static function onResourceLoaderTestModules( array &$testModules, ResourceLoader &$resourceLoader ) {
+	public static function onResourceLoaderTestModules( array &$testModules, ResourceLoader $resourceLoader ) {
 		$testModules['qunit']['ext.popups.tests'] = array(
 			'scripts' => array(
 				'tests/qunit/ext.popups.renderer.article.test.js',
