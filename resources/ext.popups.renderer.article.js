@@ -20,8 +20,8 @@
 			h: 200, // Max height
 			w: 300 // Exact Width
 		},
-		landscapePopupWidth: 450, // Exact width of a landscape popup
-		portraitPopupWidth: 300, // Exact width of a portrait popup
+		landscapePopupWidth: 512, // Exact width of a landscape popup
+		portraitPopupWidth: 360, // Exact width of a portrait popup
 		pokeySize: 8 // Height of the triangle used to point at the link
 	};
 
@@ -41,7 +41,7 @@
 		var href = link.attr( 'href' ),
 			title = mw.popups.getTitle( href ),
 			deferred = $.Deferred(),
-			scaledThumbSize = 300 * $.bracketedDevicePixelRatio();
+			scaledThumbSize = 300 * 2 * $.bracketedDevicePixelRatio();
 
 		if ( !title ) {
 			return deferred.reject().promise();
@@ -52,8 +52,9 @@
 			prop: 'extracts|pageimages|revisions',
 			formatversion: 2,
 			redirects: true,
-			exintro: true,
-			exsentences: 5,
+			// exintro: true,
+			// exsentences: 5,
+			exchars: 512,
 			// there is an added geometric limit on .mwe-popups-extract
 			// so that text does not overflow from the card
 			explaintext: true,
@@ -63,6 +64,7 @@
 			titles: title,
 			smaxage: 300,
 			maxage: 300,
+			exsectionformat: 'plain',
 			uselang: 'content'
 		} );
 
